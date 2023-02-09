@@ -27,31 +27,31 @@
                   <Font name="Meiryo" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNombre1" layoutX="51.0" layoutY="196.0" prefHeight="26.0" prefWidth="234.0" />
+            <TextField fx:id="txtApellido" layoutX="51.0" layoutY="196.0" prefHeight="26.0" prefWidth="234.0" />
             <Label layoutX="51.0" layoutY="232.0" text="Dirección">
                <font>
                   <Font name="Meiryo" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNombre11" layoutX="51.0" layoutY="262.0" prefHeight="26.0" prefWidth="234.0" />
+            <TextField fx:id="txtDireccion" layoutX="51.0" layoutY="262.0" prefHeight="26.0" prefWidth="234.0" />
             <Label layoutX="355.0" layoutY="93.0" text="Nombre de usuario">
                <font>
                   <Font name="Meiryo" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNombre111" layoutX="355.0" layoutY="123.0" prefHeight="26.0" prefWidth="234.0" />
+            <TextField fx:id="txtUserName" layoutX="355.0" layoutY="123.0" prefHeight="26.0" prefWidth="234.0" />
             <Label layoutX="355.0" layoutY="167.0" prefHeight="30.0" prefWidth="115.0" text="Contraseña">
                <font>
                   <Font name="Meiryo" size="18.0" />
                </font>
             </Label>
-            <PasswordField layoutX="355.0" layoutY="197.0" prefHeight="26.0" prefWidth="234.0" />
-            <Label layoutX="355.0" layoutY="233.0" prefHeight="30.0" prefWidth="198.0" text="Confirmar contraseña">
+            <PasswordField fx:id="txtPassword" layoutX="355.0" layoutY="197.0" prefHeight="26.0" prefWidth="234.0" />
+            <Label layoutX="353.0" layoutY="232.0" prefHeight="30.0" prefWidth="198.0" text="Confirmar contraseña">
                <font>
                   <Font name="Meiryo" size="18.0" />
                </font>
             </Label>
-            <PasswordField layoutX="355.0" layoutY="263.0" prefHeight="26.0" prefWidth="234.0" />
+            <PasswordField fx:id="txtConfirmPassword" layoutX="353.0" layoutY="260.0" prefHeight="30.0" prefWidth="234.0" />
             <Button layoutX="286.0" layoutY="333.0" mnemonicParsing="false" text="Registrarse">
                <font>
                   <Font size="16.0" />

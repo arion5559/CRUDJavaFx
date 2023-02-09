@@ -9,6 +9,12 @@ package com.example.crudjavafx;
 
 public class Main extends Application {
     private static User user;
+    private static Stage primaryStage;
+
+    public static Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login-view.fxml"));
@@ -25,4 +31,10 @@ public class Main extends Application {
     public static void setUser(User user) {
         Main.user = user;
     }
+
+    public static void main(String[] args) {
+        launch();
+    }
+
+
 }

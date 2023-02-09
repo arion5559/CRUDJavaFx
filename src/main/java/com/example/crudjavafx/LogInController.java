@@ -2,6 +2,8 @@ package com.example.crudjavafx;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -23,6 +25,10 @@ public class LogInController {
     private PasswordField txtPsw = new PasswordField();
     @FXML
     private Button btnEnter = new Button();
+    @FXML
+    private Button btnRegister = new Button();
+    @FXML
+    private Button btnExit = new Button();
 
     @FXML
     void enterLogIn(ActionEvent event) {
@@ -37,7 +43,11 @@ public class LogInController {
         if (!letThrough){
             showAlertInfo(event, "LogIn incorrecto, prueba de nuevo");
         } else {
+            try {
 
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -69,6 +79,24 @@ public class LogInController {
         }
 
         return good;
+    }
+
+    @FXML
+    void register(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("register-view.fxml"));
+            primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void exit(ActionEvent event) {
+        System.exit(0);
     }
 
 }
