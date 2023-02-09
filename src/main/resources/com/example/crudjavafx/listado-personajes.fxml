@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.crudjavafx.ListadoPersonajesController">
+    <children>
+        <TextField fx:id="txtBuscar" layoutX="27.0" layoutY="50.0" prefHeight="25.0" prefWidth="546.0" />
+        <ComboBox fx:id="comboBuscar" layoutX="27.0" layoutY="50.0" prefHeight="25.0" prefWidth="546.0" />
+        <TableView fx:id="tablePersonajes" layoutX="27.0" layoutY="83.0" prefHeight="303.0" prefWidth="546.0">
+            <columns>
+                <TableColumn fx:id="columnID" prefWidth="10.0" text="ID" />
+                <TableColumn fx:id="columnNombre" prefWidth="10.0" text="Nombre" />
+                <TableColumn fx:id="columnVitalidad" prefWidth="10.0" text="Vitalidad" />
+                <TableColumn fx:id="columnFuerza" prefWidth="10.0" text="Fuerza" />
+                <TableColumn fx:id="columnDestreza" prefWidth="10.0" text="Destreza" />
+                <TableColumn fx:id="columnMagia" prefWidth="10.0" text="Magia" />
+                <TableColumn fx:id="columnDinero" prefWidth="10.0" text="Dinero" />
+
+            </columns>
+        </TableView>
+      <Label layoutX="27.0" layoutY="14.0" text="Búsqueda de personaje">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+
+    </children>
+</AnchorPane>

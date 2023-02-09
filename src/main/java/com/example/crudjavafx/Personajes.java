@@ -1,6 +1,7 @@
 package com.example.crudjavafx;
 
 public class Personajes {
+    private int id;
     private String nombre;
     private int nivelVitalidad;
     private int nivelFuerza;
@@ -8,14 +9,23 @@ public class Personajes {
     private int nivelMagia;
     private float dinero;
 
-    public Personajes(String nombre, int nivelVitalidad, int nivelFuerza, int nivelDestreza, int nivelMagia,
+    public Personajes(int id, String nombre, int nivelVitalidad, int nivelFuerza, int nivelDestreza, int nivelMagia,
                       float dinero) {
+        this.id = id;
         this.nombre = nombre;
         this.nivelVitalidad = nivelVitalidad;
         this.nivelFuerza = nivelFuerza;
         this.nivelDestreza = nivelDestreza;
         this.nivelMagia = nivelMagia;
         this.dinero = dinero;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -68,8 +78,14 @@ public class Personajes {
 
     @Override
     public String toString() {
-        return "Nombre=" + nombre + ", Vitalidad=" + nivelVitalidad + ", Fuerza=" + nivelFuerza + ", Destreza="
-                + nivelDestreza + ", Magia=" + nivelMagia + ", Dinero=" + dinero;
+        return "Personajes{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", nivelVitalidad=" + nivelVitalidad +
+                ", nivelFuerza=" + nivelFuerza +
+                ", nivelDestreza=" + nivelDestreza +
+                ", nivelMagia=" + nivelMagia +
+                ", dinero=" + dinero +
+                '}';
     }
-
 }

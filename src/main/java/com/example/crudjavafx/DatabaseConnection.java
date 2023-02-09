@@ -20,6 +20,7 @@ public class DatabaseConnection {
             SQLSentence = (Statement) conn.createStatement();
 
             rs = SQLSentence.executeQuery(sentence);
+            conn.close();
         } catch (SQLException | ClassNotFoundException e) {
             e.getMessage();
         } finally {
