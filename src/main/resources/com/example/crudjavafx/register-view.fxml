@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="490.0" prefWidth="665.0" style="-fx-background-color: linear-gradient(from 0% 25% to 100% 100%, #F2A649, #591202);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.crudjavafx.RegisterController">
+    <children>
+        <AnchorPane layoutX="9.0" layoutY="9.0" prefHeight="470.0" prefWidth="646.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #D97F30; -fx-border-width: 8; -fx-border-radius: 50; -fx-background-radius: 60;">
+         <children>
+            <Label layoutX="33.0" layoutY="14.0" prefHeight="38.0" prefWidth="181.0" text="Registro">
+               <font>
+                  <Font name="Meiryo" size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="51.0" layoutY="93.0" text="Nombre">
+               <font>
+                  <Font name="Meiryo" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNombre" layoutX="51.0" layoutY="123.0" prefHeight="26.0" prefWidth="234.0" />
+            <Label layoutX="51.0" layoutY="166.0" text="Apellido">
+               <font>
+                  <Font name="Meiryo" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNombre1" layoutX="51.0" layoutY="196.0" prefHeight="26.0" prefWidth="234.0" />
+            <Label layoutX="51.0" layoutY="232.0" text="Dirección">
+               <font>
+                  <Font name="Meiryo" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNombre11" layoutX="51.0" layoutY="262.0" prefHeight="26.0" prefWidth="234.0" />
+            <Label layoutX="355.0" layoutY="93.0" text="Nombre de usuario">
+               <font>
+                  <Font name="Meiryo" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNombre111" layoutX="355.0" layoutY="123.0" prefHeight="26.0" prefWidth="234.0" />
+            <Label layoutX="355.0" layoutY="167.0" prefHeight="30.0" prefWidth="115.0" text="Contraseña">
+               <font>
+                  <Font name="Meiryo" size="18.0" />
+               </font>
+            </Label>
+            <PasswordField layoutX="355.0" layoutY="197.0" prefHeight="26.0" prefWidth="234.0" />
+            <Label layoutX="355.0" layoutY="233.0" prefHeight="30.0" prefWidth="198.0" text="Confirmar contraseña">
+               <font>
+                  <Font name="Meiryo" size="18.0" />
+               </font>
+            </Label>
+            <PasswordField layoutX="355.0" layoutY="263.0" prefHeight="26.0" prefWidth="234.0" />
+            <Button layoutX="286.0" layoutY="333.0" mnemonicParsing="false" text="Registrarse">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+    </children>
+</AnchorPane>

@@ -9,9 +9,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="665.0" style="-fx-background-color: linear-gradient(from 0% 25% to 100% 100%, #F2766B, #262324);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="pane" maxHeight="-Infinity"
+            maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="480.0" prefWidth="665.0"
+            style="-fx-background-color: linear-gradient(from 0% 25% to 100% 100%, #F2A649, #591202);"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.crudjavafx.LogInController">
    <children>
-      <AnchorPane layoutX="115.0" layoutY="32.0" prefHeight="415.0" prefWidth="436.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #F2766B; -fx-border-width: 8; -fx-border-radius: 50; -fx-background-radius: 60;">
+      <AnchorPane layoutX="115.0" layoutY="32.0" prefHeight="415.0" prefWidth="436.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #D97F30; -fx-border-width: 8; -fx-border-radius: 50; -fx-background-radius: 60;">
          <children>
             <Label alignment="CENTER" layoutX="83.0" layoutY="30.0" text="Inicio de sesión" textAlignment="CENTER">
                <font>
@@ -38,7 +43,8 @@
                   <Font size="18.0" />
                </font>
             </PasswordField>
-            <Button fx:id="btnClick" layoutX="13.0" layoutY="294.0" style="-fx-background-color: lightgreen;" text="Entrar" textAlignment="CENTER">
+            <Button fx:id="btnEnter" layoutX="13.0" layoutY="294.0" style="-fx-background-color: lightgreen;"
+                    text="Entrar" textAlignment="CENTER" onAction="#enterLogIn">
                <font>
                   <Font size="18.0" />
                </font>
