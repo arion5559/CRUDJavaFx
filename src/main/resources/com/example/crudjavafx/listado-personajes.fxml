@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.crudjavafx.ListadoPersonajesController">
     <children>
-        <TextField fx:id="txtBuscar" layoutX="27.0" layoutY="50.0" prefHeight="25.0" prefWidth="546.0" />
+        <TextField fx:id="txtBuscar" layoutX="27.0" layoutY="50.0" onKeyPressed="#buscar" prefHeight="25.0" prefWidth="546.0" />
         <ComboBox fx:id="comboBuscar" layoutX="387.0" layoutY="50.0" prefHeight="30.0" prefWidth="186.0" />
         <TableView fx:id="tablePersonajes" layoutX="27.0" layoutY="93.0" prefHeight="230.0" prefWidth="546.0">
             <columns>
@@ -30,17 +30,17 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="373.0" layoutY="331.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" text="Modificar">
+      <Button fx:id="btnModify" layoutX="373.0" layoutY="331.0" mnemonicParsing="false" onAction="#modify" prefHeight="38.0" prefWidth="95.0" text="Modificar">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="269.0" layoutY="331.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" text="Crear">
+      <Button fx:id="btnCreate" layoutX="269.0" layoutY="331.0" mnemonicParsing="false" onAction="#create" prefHeight="38.0" prefWidth="95.0" text="Crear">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="477.0" layoutY="331.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" text="Eliminar">
+      <Button fx:id="btnEliminate" layoutX="477.0" layoutY="331.0" mnemonicParsing="false" onAction="#eliminate" prefHeight="38.0" prefWidth="95.0" text="Eliminar">
          <font>
             <Font size="16.0" />
          </font>
