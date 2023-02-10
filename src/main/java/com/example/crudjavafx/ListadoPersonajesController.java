@@ -36,16 +36,17 @@ public class ListadoPersonajesController {
 
     public void initialize() throws SQLException {
         ResultSet rs = null;
-        rs = DatabaseConnection.execute("SELECT * FROM personajes");
+        rs = DatabaseConnection.execute("SELECT * FROM personajes WHERE IdUsuario = " + Main.getUser().getID());
         while (rs.next()) {
             tablePersonajes.getItems().add(
                     new Personajes(rs.getInt("ID"), rs.getString("Nombre"),
                     rs.getInt("Vitalidad"), rs.getInt("Fuerza"),
                             rs.getInt("Destreza"),
                             rs.getInt("Magia"),
-                            rs.getFloat("Dinero")));
+                            rs.getFloat("Dinero"),
+                            rs.getInt("IdUsuario")));
         }
-        cmbBuscar.getItems().addAll("ID", "Nombre", "Clase", "Nivel", "Raza", "Dinero");
+        cmbBuscar.getItems().addAll("ID", "Nombre", "Vitalidad", "Fuerza", "Destreza", "Magia", "Dinero", "IdUsuario");
     }
 
 

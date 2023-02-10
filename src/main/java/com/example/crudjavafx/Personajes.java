@@ -8,9 +8,11 @@ public class Personajes {
     private int nivelDestreza;
     private int nivelMagia;
     private float dinero;
+    private int idUsuario;
 
-    public Personajes(int id, String nombre, int nivelVitalidad, int nivelFuerza, int nivelDestreza, int nivelMagia,
-                      float dinero) {
+    public Personajes(int id, String nombre, int nivelVitalidad,
+                      int nivelFuerza, int nivelDestreza, int nivelMagia,
+                      float dinero, int idUsuario) {
         this.id = id;
         this.nombre = nombre;
         this.nivelVitalidad = nivelVitalidad;
@@ -18,6 +20,7 @@ public class Personajes {
         this.nivelDestreza = nivelDestreza;
         this.nivelMagia = nivelMagia;
         this.dinero = dinero;
+        this.idUsuario = idUsuario;
     }
 
     public int getId() {
@@ -76,16 +79,16 @@ public class Personajes {
         this.dinero = dinero;
     }
 
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
     @Override
     public String toString() {
-        return "Personajes{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", nivelVitalidad=" + nivelVitalidad +
-                ", nivelFuerza=" + nivelFuerza +
-                ", nivelDestreza=" + nivelDestreza +
-                ", nivelMagia=" + nivelMagia +
-                ", dinero=" + dinero +
-                '}';
+        return "Personajes [id=" + id + ", nombre=" + nombre + ", nivelVitalidad=" + nivelVitalidad + ", nivelFuerza=" + nivelFuerza + ", nivelDestreza=" + nivelDestreza + ", nivelMagia=" + nivelMagia + ", dinero=" + dinero + ", idUsuario=" + idUsuario + "]";
     }
 }

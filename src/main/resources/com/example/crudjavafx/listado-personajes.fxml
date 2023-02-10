@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -8,19 +9,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.crudjavafx.ListadoPersonajesController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.crudjavafx.ListadoPersonajesController">
     <children>
         <TextField fx:id="txtBuscar" layoutX="27.0" layoutY="50.0" prefHeight="25.0" prefWidth="546.0" />
-        <ComboBox fx:id="comboBuscar" layoutX="27.0" layoutY="50.0" prefHeight="25.0" prefWidth="546.0" />
-        <TableView fx:id="tablePersonajes" layoutX="27.0" layoutY="83.0" prefHeight="303.0" prefWidth="546.0">
+        <ComboBox fx:id="comboBuscar" layoutX="387.0" layoutY="50.0" prefHeight="30.0" prefWidth="186.0" />
+        <TableView fx:id="tablePersonajes" layoutX="27.0" layoutY="93.0" prefHeight="230.0" prefWidth="546.0">
             <columns>
-                <TableColumn fx:id="columnID" prefWidth="10.0" text="ID" />
-                <TableColumn fx:id="columnNombre" prefWidth="10.0" text="Nombre" />
-                <TableColumn fx:id="columnVitalidad" prefWidth="10.0" text="Vitalidad" />
-                <TableColumn fx:id="columnFuerza" prefWidth="10.0" text="Fuerza" />
-                <TableColumn fx:id="columnDestreza" prefWidth="10.0" text="Destreza" />
-                <TableColumn fx:id="columnMagia" prefWidth="10.0" text="Magia" />
-                <TableColumn fx:id="columnDinero" prefWidth="10.0" text="Dinero" />
+                <TableColumn fx:id="columnID" prefWidth="40.79998779296875" text="ID" />
+                <TableColumn fx:id="columnNombre" prefWidth="102.39996337890625" text="Nombre" />
+                <TableColumn fx:id="columnVitalidad" prefWidth="78.40008544921875" text="Vitalidad" />
+                <TableColumn fx:id="columnFuerza" prefWidth="85.5999755859375" text="Fuerza" />
+                <TableColumn fx:id="columnDestreza" prefWidth="80.8001708984375" text="Destreza" />
+                <TableColumn fx:id="columnMagia" prefWidth="70.39990234375" text="Magia" />
+                <TableColumn fx:id="columnDinero" prefWidth="87.20004882812498" text="Dinero" />
 
             </columns>
         </TableView>
@@ -29,6 +30,21 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Button layoutX="373.0" layoutY="331.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" text="Modificar">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="269.0" layoutY="331.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" text="Crear">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="477.0" layoutY="331.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="95.0" text="Eliminar">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
 
     </children>
 </AnchorPane>
