@@ -44,7 +44,7 @@ public class RegisterController {
             return;
         }
 
-        if (!DatabaseConnection.execute("SELECT * FROM usuarios WHERE `User` = '" + userName + "'").isBeforeFirst()) {
+        if (DatabaseConnection.execute("SELECT * FROM usuarios WHERE `User` = '" + userName + "'").isBeforeFirst()) {
             showAlertInfo(null, "El usuario ya existe");
             return;
         }
@@ -54,14 +54,9 @@ public class RegisterController {
             return;
         }
 
-        DatabaseConnection.execute("INSERT INTO usuarios (Nombre, Apellido, Direccion, User, Password) " +
+        DatabaseConnection.execute("INSERT INTO usuarios (Name, Surname, Direction, User, Password) " +
                 "VALUES ('" + nombre + "', '" + apellido + "', '" + direccion + "', '" + userName + "', '" + password + "')");
 
-        rs = DatabaseConnection.execute("SELECT * FROM usuarios WHERE `User` = '" + userName + "' and `Password` = '" + password + "'");
-        while (rs.next()) {
-            user = new User(rs.getInt("ID"), rs.getString("Nombre"), rs.getString("Apellido"), rs.getString("Direccion"), rs.getString("User"), rs.getString("Password"));
-        }
-        Main.setUser(user);
         showAlertInfo(null, "Usuario registrado correctamente");
     }
 

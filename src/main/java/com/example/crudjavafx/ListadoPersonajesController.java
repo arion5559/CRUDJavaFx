@@ -1,10 +1,14 @@
 package com.example.crudjavafx;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -13,22 +17,19 @@ import java.sql.SQLException;
 
 public class ListadoPersonajesController {
     @FXML
-    private TableView tablePersonajes;
+    private TableView<Personajes> tablePersonajes;
 
     @FXML
-    private Button btnNuevoPersonaje;
+    private Button btnCreate;
 
     @FXML
-    private Button btnEditarPersonaje;
+    private Button btnModify;
 
     @FXML
-    private Button btnEliminarPersonaje;
+    private Button btnEliminate;
 
     @FXML
-    private Button btnVolver;
-
-    @FXML
-    private Button btnSalir;
+    private Button btnCerrarSesion;
 
     @FXML
     private Button btnBuscar;
@@ -37,11 +38,43 @@ public class ListadoPersonajesController {
     private TextField txtBuscar;
 
     @FXML
-    private ComboBox<String> cmbBuscar;
+    private ComboBox<String> comboBuscar;
+
+    @FXML
+    private TableColumn<Personajes, Integer> columnID;
+
+    @FXML
+    private TableColumn<Personajes, String> columnNombre;
+
+    @FXML
+    private TableColumn<Personajes, Integer> columnVitalidad;
+
+    @FXML
+    private TableColumn<Personajes, Integer> columnFuerza;
+
+    @FXML
+    private TableColumn<Personajes, Integer> columnDestreza;
+
+    @FXML
+    private TableColumn<Personajes, Integer> columnMagia;
+
+    @FXML
+    private TableColumn<Personajes, Float> columnDinero;
+
+    @FXML
+    private TableColumn<Personajes, Integer> columnIdUsuario;
 
     public void initialize() throws SQLException {
         ResultSet rs = null;
         rs = DatabaseConnection.execute("SELECT * FROM personajes WHERE IdUsuario = " + Main.getUser().getID());
+        columnID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+        columnNombre.setCellValueFactory(new PropertyValueFactory<>("Nombre"));
+        columnVitalidad.setCellValueFactory(new PropertyValueFactory<>("Vitalidad"));
+        columnFuerza.setCellValueFactory(new PropertyValueFactory<>("Fuerza"));
+        columnDestreza.setCellValueFactory(new PropertyValueFactory<>("Destreza"));
+        columnMagia.setCellValueFactory(new PropertyValueFactory<>("Magia"));
+        columnDinero.setCellValueFactory(new PropertyValueFactory<>("Dinero"));
+        columnIdUsuario.setCellValueFactory(new PropertyValueFactory<>("IdUsuario"));
         while (rs.next()) {
             tablePersonajes.getItems().add(
                     new Personajes(rs.getInt("ID"), rs.getString("Nombre"),
@@ -51,16 +84,36 @@ public class ListadoPersonajesController {
                             rs.getFloat("Dinero"),
                             rs.getInt("IdUsuario")));
         }
-        cmbBuscar.getItems().addAll("ID", "Nombre", "Vitalidad", "Fuerza", "Destreza", "Magia", "Dinero", "IdUsuario");
+        // Puedes arreglar esto por favor?
+        ObservableList<String> options =
+                FXCollections.observableArrayList(
+                        "ID",
+                        "Nombre",
+                        "Vitalidad",
+                        "Fuerza",
+                        "Destreza",
+                        "Magia",
+                        "Dinero"
+                );
+
+        comboBuscar.setItems(options);
+        comboBuscar.setValue("Nombre");
     }
 
     @FXML
     void buscar() throws SQLException {
         ResultSet rs = null;
         String buscar = txtBuscar.getText();
-        String campo = cmbBuscar.getValue();
+        String campo = null;
         tablePersonajes.getItems().clear();
-        rs = DatabaseConnection.execute("SELECT * FROM personajes WHERE " + campo + " LIKE '%" + buscar + "%' AND IdUsuario = " + Main.getUser().getID());
+        if (comboBuscar.getValue() != null) {
+            campo = comboBuscar.getValue().toString();
+        }
+        if (campo != null) {
+            rs = DatabaseConnection.execute("SELECT * FROM personajes WHERE " + campo + " LIKE '%" + buscar + "%' AND IdUsuario = " + Main.getUser().getID());
+        } else {
+            rs = DatabaseConnection.execute("SELECT * FROM personajes WHERE Nombre LIKE '%" + buscar + "%' AND IdUsuario = " + Main.getUser().getID());
+        }
         while (rs.next()) {
             tablePersonajes.getItems().add(
                     new Personajes(rs.getInt("ID"), rs.getString("Nombre"),
@@ -83,9 +136,29 @@ public class ListadoPersonajesController {
 
     @FXML
     void modify() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("modify-character-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("modify-view.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Modificar Personaje");
+        stage.setScene(new Scene(root, 600, 400));
+        stage.show();
+    }
+    @FXML
+    public void eliminate() throws SQLException {
+        Personajes personaje = (Personajes) tablePersonajes.getSelectionModel().getSelectedItem();
+        DatabaseConnection.execute("DELETE FROM personajes WHERE ID = " + personaje.getId());
+        tablePersonajes.getItems().remove(personaje);
+    }
+
+    public Personajes getSelectedPersonaje() {
+        return (Personajes) tablePersonajes.getSelectionModel().getSelectedItem();
+    }
+
+    @FXML
+    void logOut(ActionEvent event) throws IOException {
+        Main.setUser(null);
+        Parent root = FXMLLoader.load(getClass().getResource("login-view.fxml"));
+        Stage stage = (Stage) btnCerrarSesion.getScene().getWindow();
+        stage.setTitle("LogIn");
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
     }

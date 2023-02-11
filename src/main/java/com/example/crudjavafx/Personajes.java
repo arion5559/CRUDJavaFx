@@ -91,4 +91,6 @@ public class Personajes {
     public String toString() {
         return "Personajes [id=" + id + ", nombre=" + nombre + ", nivelVitalidad=" + nivelVitalidad + ", nivelFuerza=" + nivelFuerza + ", nivelDestreza=" + nivelDestreza + ", nivelMagia=" + nivelMagia + ", dinero=" + dinero + ", idUsuario=" + idUsuario + "]";
     }
+
+
 }

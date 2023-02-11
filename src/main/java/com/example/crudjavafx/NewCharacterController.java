@@ -68,21 +68,21 @@ public class NewCharacterController {
         DatabaseConnection.execute("INSERT INTO personajes (nombre, vitalidad, fuerza, destreza, magia, dinero, IdUsuario) VALUES " +
                 "('" + nombre + "', " + vitalidad + ", " + fuerza + ", " + destreza + ", " + magia + ", " + dinero + ", " + Main.getUser().getID() + ")");
         ResultSet rs = DatabaseConnection.execute("SELECT * FROM personajes WHERE nombre = '" + nombre + "'");
-        rs.next();
-        // show alert with character info and a message that it was added and clear all the fields
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Personaje creado");
-        alert.setHeaderText("Personaje creado");
-        alert.setContentText("El personaje se ha creado correctamente");
-        alert.showAndWait();
-        txtNombre.setText("");
-        comboClase.setValue("");
-        txtDinero.setText("");
+        if (rs.next()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Personaje creado");
+            alert.setHeaderText("Personaje creado");
+            alert.setContentText("El personaje se ha creado correctamente");
+            alert.showAndWait();
+            txtNombre.setText("");
+            comboClase.setValue("");
+            txtDinero.setText("");
+        }
+
     }
 
     @FXML
     void create(ActionEvent event) {
-        // antes de crear el personaje, comprobar que el nombre no está repetido y que los campos no están vacíos y que el dinero es un número
         if (txtNombre.getText().isEmpty() || comboClase.getValue().isEmpty() || txtDinero.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -117,7 +117,6 @@ public class NewCharacterController {
 
     @FXML
     void showClasses(ActionEvent event) {
-        // show a list of the classes and their stats
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Clases");
         alert.setHeaderText("Clases");

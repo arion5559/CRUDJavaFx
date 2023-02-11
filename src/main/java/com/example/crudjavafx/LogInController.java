@@ -13,9 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LogInController {
-    private Stage primaryStage;
-    private Scene scene;
-    private Parent root;
     @FXML
     private TextField txtUsuario = new TextField();
     @FXML
@@ -28,7 +25,7 @@ public class LogInController {
     private Button btnExit = new Button();
 
     @FXML
-    void enterLogIn(ActionEvent event) {
+    void enterLogIn(ActionEvent event) throws SQLException {
         boolean letThrough = false;
 
         try{
@@ -40,8 +37,17 @@ public class LogInController {
         if (!letThrough){
             showAlertInfo(event, "LogIn incorrecto, prueba de nuevo");
         } else {
+            ResultSet rs = DatabaseConnection.execute("SELECT * FROM usuarios WHERE User = '" + txtUsuario.getText() + "'");
+            while (rs.next()){
+                Main.setUser(new User(rs.getInt("ID"), rs.getString("Name"), rs.getString("Surname"),
+                        rs.getString("Direction"), rs.getString("User"), rs.getString("Password")));
+            }
             try {
-
+                Parent root = FXMLLoader.load(getClass().getResource("listado-personajes.fxml"));
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -63,15 +69,19 @@ public class LogInController {
         User user = null;
         boolean good = false;
 
+        System.out.println(userName + " " + psw);
+
         rs = DatabaseConnection.execute("SELECT * FROM usuarios " +
                 "WHERE `User` = '" + userName + "' and `Password` = '" + psw + "'");
-
+        if (!rs.isBeforeFirst()){
+            return false;
+        }
         while (rs.next()){
             user = new User(rs.getInt("ID"), rs.getString("Name"), rs.getString("Surname"),
                     rs.getString("Direction"), rs.getString("User"), rs.getString("Password"));
         }
 
-        if ((user.getUsername() == userName) && (user.getPassword() == psw)){
+        if ((user.getUsername().equals(userName)) && (user.getPassword().equals(psw))){
             good = true;
         }
 
@@ -81,11 +91,11 @@ public class LogInController {
     @FXML
     void register(ActionEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("register-view.fxml"));
-            primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            Parent root = FXMLLoader.load(getClass().getResource("register-view.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }

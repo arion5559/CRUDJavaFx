@@ -17,16 +17,17 @@ public class DatabaseConnection {
 
             System.out.println("Conectado");
 
+            conn.setCatalog("javafxusers");
+
             SQLSentence = (Statement) conn.createStatement();
 
-            rs = SQLSentence.executeQuery(sentence);
-            conn.close();
+            if (sentence.toLowerCase().startsWith("select")) {
+                rs = SQLSentence.executeQuery(sentence);
+            } else {
+                SQLSentence.executeUpdate(sentence);
+            }
         } catch (SQLException | ClassNotFoundException e) {
             e.getMessage();
-        } finally {
-            if (conn != null){
-                conn.close();
-            }
         }
 
         System.out.println("Desconectado");

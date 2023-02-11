@@ -15,13 +15,14 @@
         <ComboBox fx:id="comboBuscar" layoutX="387.0" layoutY="50.0" prefHeight="30.0" prefWidth="186.0" />
         <TableView fx:id="tablePersonajes" layoutX="27.0" layoutY="93.0" prefHeight="230.0" prefWidth="546.0">
             <columns>
-                <TableColumn fx:id="columnID" prefWidth="40.79998779296875" text="ID" />
-                <TableColumn fx:id="columnNombre" prefWidth="102.39996337890625" text="Nombre" />
-                <TableColumn fx:id="columnVitalidad" prefWidth="78.40008544921875" text="Vitalidad" />
-                <TableColumn fx:id="columnFuerza" prefWidth="85.5999755859375" text="Fuerza" />
-                <TableColumn fx:id="columnDestreza" prefWidth="80.8001708984375" text="Destreza" />
-                <TableColumn fx:id="columnMagia" prefWidth="70.39990234375" text="Magia" />
-                <TableColumn fx:id="columnDinero" prefWidth="87.20004882812498" text="Dinero" />
+                <TableColumn fx:id="columnID" text="ID" />
+                <TableColumn fx:id="columnNombre" text="Nombre" />
+                <TableColumn fx:id="columnVitalidad" text="Vitalidad" />
+                <TableColumn fx:id="columnFuerza" text="Fuerza" />
+                <TableColumn fx:id="columnDestreza" text="Destreza" />
+                <TableColumn fx:id="columnMagia" text="Magia" />
+                <TableColumn fx:id="columnDinero" text="Dinero" />
+                <TableColumn fx:id="columnIdUsuario" text="IdUsuario" />
 
             </columns>
         </TableView>
@@ -45,6 +46,11 @@
             <Font size="16.0" />
          </font>
       </Button>
+        <Button fx:id="btnCerrarSesion" layoutX="27.0" layoutY="331.0" mnemonicParsing="false" onAction="#logOut" prefHeight="38.0" prefWidth="95.0" text="Salir">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
 
     </children>
 </AnchorPane>

@@ -38,7 +38,7 @@
                   <Font size="18.0" />
                </font>
             </PasswordField>
-            <Button fx:id="btnEnter" layoutX="38.0" layoutY="294.0" onAction="#enterLogIn" onMouseClicked="#enterLogIn" prefHeight="41.0" prefWidth="113.0" text="Entrar" textAlignment="CENTER">
+            <Button fx:id="btnEnter" layoutX="38.0" layoutY="294.0" onAction="#enterLogIn" prefHeight="41.0" prefWidth="113.0" text="Entrar" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
@@ -46,7 +46,7 @@
                   <Blend />
                </effect>
             </Button>
-            <Button fx:id="btnRegister" layoutX="164.0" layoutY="294.0" onAction="#register" onMouseClicked="#register" prefHeight="41.0" prefWidth="113.0" text="Registrarse" textAlignment="CENTER">
+            <Button fx:id="btnRegister" layoutX="164.0" layoutY="294.0" onAction="#register" prefHeight="41.0" prefWidth="113.0" text="Registrarse" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
@@ -54,7 +54,7 @@
                   <Blend />
                </effect>
             </Button>
-            <Button fx:id="btnExit" layoutX="289.0" layoutY="294.0" onAction="#exit" onMouseClicked="#exit" prefHeight="41.0" prefWidth="113.0" text="Salir" textAlignment="CENTER">
+            <Button fx:id="btnExit" layoutX="289.0" layoutY="294.0" onAction="#exit" prefHeight="41.0" prefWidth="113.0" text="Salir" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>

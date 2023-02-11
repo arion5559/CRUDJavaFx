@@ -42,12 +42,12 @@
                 <Font size="16.0" />
             </font>
         </Button>
-        <!-- Botón para enseñar las clases -->
         <Button fx:id="btnShowClasses" layoutX="27.0" layoutY="270.0" mnemonicParsing="false" onAction="#showClasses" prefHeight="38.0" prefWidth="95.0" text="Clases">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
+
     </children>
 
 </AnchorPane>

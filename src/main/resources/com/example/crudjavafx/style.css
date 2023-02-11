@@ -39,15 +39,6 @@
     -fx-padding: 5px;
 }
 
-.table-cell {
-    -fx-background-color: #E9D67A;
-    -fx-border-color: #663300;
-    -fx-border-width: 2px;
-    -fx-border-style: solid;
-    -fx-border-radius: 5px;
-    -fx-padding: 5px;
-}
-
 .button {
     -fx-background-color: #663300;
     -fx-text-fill: #E9D67A;
