@@ -67,14 +67,14 @@ public class ListadoPersonajesController {
     public void initialize() throws SQLException {
         ResultSet rs = null;
         rs = DatabaseConnection.execute("SELECT * FROM personajes WHERE IdUsuario = " + Main.getUser().getID());
-        columnID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+        columnID.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnNombre.setCellValueFactory(new PropertyValueFactory<>("Nombre"));
-        columnVitalidad.setCellValueFactory(new PropertyValueFactory<>("Vitalidad"));
-        columnFuerza.setCellValueFactory(new PropertyValueFactory<>("Fuerza"));
-        columnDestreza.setCellValueFactory(new PropertyValueFactory<>("Destreza"));
-        columnMagia.setCellValueFactory(new PropertyValueFactory<>("Magia"));
+        columnVitalidad.setCellValueFactory(new PropertyValueFactory<>("nivelVitalidad"));
+        columnFuerza.setCellValueFactory(new PropertyValueFactory<>("nivelFuerza"));
+        columnDestreza.setCellValueFactory(new PropertyValueFactory<>("nivelDestreza"));
+        columnMagia.setCellValueFactory(new PropertyValueFactory<>("nivelMagia"));
         columnDinero.setCellValueFactory(new PropertyValueFactory<>("Dinero"));
-        columnIdUsuario.setCellValueFactory(new PropertyValueFactory<>("IdUsuario"));
+        columnIdUsuario.setCellValueFactory(new PropertyValueFactory<>("idUsuario"));
         while (rs.next()) {
             tablePersonajes.getItems().add(
                     new Personajes(rs.getInt("ID"), rs.getString("Nombre"),
@@ -149,8 +149,9 @@ public class ListadoPersonajesController {
         tablePersonajes.getItems().remove(personaje);
     }
 
-    public Personajes getSelectedPersonaje() {
-        return (Personajes) tablePersonajes.getSelectionModel().getSelectedItem();
+    public int getIdPersonaje() {
+        Personajes personaje = tablePersonajes.getSelectionModel().getSelectedItem();
+        return personaje.getId();
     }
 
     @FXML

@@ -125,9 +125,15 @@ public class ModifyController {
         txtMagia.setText(String.valueOf(magia));
     }
 
-    public void initialize() {
+    public void initialize() throws SQLException {
         ListadoPersonajesController listado = new ListadoPersonajesController();
-        Personajes personajes = listado.getSelectedPersonaje();
+        Personajes personajes = null;
+        ResultSet rs = DatabaseConnection.execute("SELECT FROM personajes WHERE ID = " + listado.getIdPersonaje());
+        while (rs.next()) {
+            personajes = new Personajes(rs.getInt("ID"), rs.getString("nombre"),
+                    rs.getInt("vitalidad"), rs.getInt("fuerza"), rs.getInt("destreza"),
+                    rs.getInt("magia"), rs.getInt("dinero"), rs.getInt("IDUsuario"));
+        }
         txtNombre.setText(personajes.getNombre());
         txtVitalidad.setText(String.valueOf(personajes.getNivelVitalidad()));
         txtFuerza.setText(String.valueOf(personajes.getNivelFuerza()));
